@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">GeoQuiz</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="bouton_vrai">Vrai</string>
+    <string name="bouton_faux">Faux</string>
+    <string name="question_capitale">Paris est la capitale de la France</string>
+    <string name="toast_correct">Vrai !</string>
+    <string name="toast_faux">Faux !</string>
+    <string name="bouton_suivant">Question suivante</string>
+    <string name="question_oceans">L\'océan atlantique est plus petit que l\'océan Pacifique</string>
+    <string name="question_mideast">Le canal de Suez est au Moyen Orient</string>
+    <string name="question_africa">Le Nil parcourt l\'Egypte</string>
+    <string name="question_americas">Le lac TitiCaca est en Bolivie.</string>
+    <string name="question_asia">Never nuke a country twice.</string>
+</resources>
