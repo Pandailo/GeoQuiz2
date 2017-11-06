@@ -1,6 +1,7 @@
 package com.m2bdia.geoquiz;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "QuizActivity";
+    private static final String KEY_INDEX = "index";
     private Button mBoutonVrai;
     private Button mBoutonFaux;
     private Button mBoutonSuivant;
@@ -27,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
             new VraiFaux(R.string.question_mideast,true)
     };
     private int mIndexActuel = 0;
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.i(TAG,"OnSaveInstanceState");
+        outState.putInt(KEY_INDEX,mIndexActuel);
+    }
 
     private void majQuestion(){
         int question = mTabQuestions[mIndexActuel].getQuestion();
@@ -78,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d(TAG,"OnCreate appelee");
         setContentView(R.layout.activity_main);
+        if(savedInstanceState != null){
+            mIndexActuel = savedInstanceState.getInt(KEY_INDEX,0);
+        }
+       //    Caused by: java.lang.NullPointerException: Attempt to invoke virtual method 'void android.widget.TextView.setText(int)' on a null object reference
         mQuestionTextView = (TextView)findViewById(R.id.question_text_view);
         int question = mTabQuestions[mIndexActuel].getQuestion();
         mQuestionTextView.setText(question);
