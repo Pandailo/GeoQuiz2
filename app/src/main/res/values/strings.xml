@@ -3,7 +3,6 @@
     <string name="action_settings">Paramètres</string>
     <string name="bouton_vrai">Vrai</string>
     <string name="bouton_faux">Faux</string>
-    <string name="question_capitale">Paris est la capitale de la France</string>
     <string name="toast_correct">Vrai !</string>
     <string name="toast_faux">Faux !</string>
     <string name="bouton_suivant">Question suivante</string>
@@ -12,4 +11,8 @@
     <string name="question_africa">Le Nil parcourt l\'Egypte</string>
     <string name="question_americas">Le lac TitiCaca est en Bolivie.</string>
     <string name="question_asia">Never nuke a country twice.</string>
+    <string name="title_activity_aide">AideActivity</string>
+    <string name="bouton_affiche_aide">Afficher aide</string>
+    <string name="toast_aide">C\'est pas bien de tricher</string>
+    <string name="texte_attention">Sur de vouloir faire ça ?</string>
 </resources>
