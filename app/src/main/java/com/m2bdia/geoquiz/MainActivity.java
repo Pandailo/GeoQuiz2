@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView mQuestionTextView;
     private VraiFaux[] mTabQuestions = new VraiFaux[]{
             new VraiFaux(R.string.question_oceans,true),
-            new VraiFaux(R.string.question_africa,false),
-            new VraiFaux(R.string.question_americas,true),
+            new VraiFaux(R.string.question_africa,true),
+            new VraiFaux(R.string.question_americas,false),
             new VraiFaux(R.string.question_asia,true),
             new VraiFaux(R.string.question_mideast,true)
     };
