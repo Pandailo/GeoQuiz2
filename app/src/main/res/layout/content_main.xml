@@ -37,6 +37,6 @@ tools:showIn="@layout/activity_main">
         android:id="@+id/bouton_suivant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableRight="@drawable/arrow_right_xhdpi"
+        android:drawableRight="@drawable/arrow_right"
         android:text="@string/bouton_suivant"/>
 </LinearLayout>
