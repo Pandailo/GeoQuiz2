@@ -104,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
                 mQuestionTextView.setText(question);
             }
         });
-
         majQuestion();
     }
 
