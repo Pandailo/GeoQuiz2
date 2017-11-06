@@ -99,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 verifieReponse(true);
+                mIndexActuel = (mIndexActuel +1)%mTabQuestions.length;
+                majQuestion();
             }
         });
         mBoutonFaux = (Button)findViewById(R.id.bouton_faux);
@@ -106,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 verifieReponse(false);
+                mIndexActuel = (mIndexActuel +1)%mTabQuestions.length;
+                majQuestion();
             }
         });
         mBoutonSuivant=(Button)findViewById(R.id.bouton_suivant);
@@ -113,8 +117,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mIndexActuel = (mIndexActuel +1)%mTabQuestions.length;
-                int question = mTabQuestions[mIndexActuel].getQuestion();
-                mQuestionTextView.setText(question);
+                majQuestion();
             }
         });
         majQuestion();
