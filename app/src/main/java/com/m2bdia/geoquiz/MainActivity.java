@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mBoutonSuivant;
     private TextView mQuestionTextView;
     private Button mBoutonAide;
+    private boolean mEstTricheur;
     private VraiFaux[] mTabQuestions = new VraiFaux[]{
             new VraiFaux(R.string.question_oceans,true),
             new VraiFaux(R.string.question_africa,true),
@@ -31,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
             new VraiFaux(R.string.question_mideast,true)
     };
     private int mIndexActuel = 0;
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //super.onActivityResult(requestCode, resultCode, data);
+        if(data != null){
+            mEstTricheur = data.getBooleanExtra(AideActivity.EXTRA_REPONSE_AFFICHEE,false);
+        }
+    }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -77,10 +87,14 @@ public class MainActivity extends AppCompatActivity {
     private void verifieReponse(boolean userVrai){
         boolean reponseVraie = mTabQuestions[mIndexActuel].isQuestionVraie();
         int messReponseId=0;
-        if(userVrai==reponseVraie) {
-            messReponseId = R.string.toast_correct;
-        }else{
-            messReponseId = R.string.toast_faux;
+        if(mEstTricheur){
+            messReponseId = R.string.toast_aide;
+        }else {
+            if (userVrai == reponseVraie) {
+                messReponseId = R.string.toast_correct;
+            } else {
+                messReponseId = R.string.toast_faux;
+            }
         }
         Toast.makeText(MainActivity.this,messReponseId,Toast.LENGTH_SHORT).show();
     }
@@ -129,7 +143,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intention = new Intent(MainActivity.this,AideActivity.class);
                 boolean reponseVraie = mTabQuestions[mIndexActuel].isQuestionVraie();
                 intention.putExtra(AideActivity.EXTRA_REPONSE_VRAIE,reponseVraie);
-                startActivity(intention);
+                //startActivity(intention);
+                startActivityForResult(intention,2017);
             }
         });
         majQuestion();
