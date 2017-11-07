@@ -1,5 +1,6 @@
 package com.m2bdia.geoquiz;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mBoutonFaux;
     private Button mBoutonSuivant;
     private TextView mQuestionTextView;
+    private Button mBoutonAide;
     private VraiFaux[] mTabQuestions = new VraiFaux[]{
             new VraiFaux(R.string.question_oceans,true),
             new VraiFaux(R.string.question_africa,true),
@@ -118,6 +120,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mIndexActuel = (mIndexActuel +1)%mTabQuestions.length;
                 majQuestion();
+            }
+        });
+        mBoutonAide=(Button)findViewById(R.id.bouton_aide);
+        mBoutonAide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intention = new Intent(MainActivity.this,AideActivity.class);
+                boolean reponseVraie = mTabQuestions[mIndexActuel].isQuestionVraie();
+                intention.putExtra(AideActivity.EXTRA_REPONSE_VRAIE,reponseVraie);
+                startActivity(intention);
             }
         });
         majQuestion();

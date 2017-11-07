@@ -14,5 +14,5 @@
     <string name="title_activity_aide">AideActivity</string>
     <string name="bouton_affiche_aide">Afficher aide</string>
     <string name="toast_aide">C\'est pas bien de tricher</string>
-    <string name="texte_attention">Sur de vouloir faire ça ?</string>
+    <string name="texte_attention">Sûr de vouloir faire ça ?</string>
 </resources>
